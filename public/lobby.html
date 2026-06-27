@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sohbet Merkezi - Esosy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+<a href="index.html" class="logo">Esosy</a>
+
+<nav class="menu">
+<a href="index.html">Ana Sayfa</a>
+</nav>
+
+</header>
+
+<div class="lobby">
+
+<h2>Sohbet Merkezi</h2>
+
+<!-- GRUP OLUŞTUR -->
+<div class="box">
+
+<h3>Grup Oluştur</h3>
+
+<input type="text" id="createRoomName" placeholder="Grup adı">
+<input type="password" id="createRoomPass" placeholder="Grup şifre">
+
+<button onclick="createRoom()">Oluştur</button>
+
+</div>
+
+<!-- GRUBA KATIL -->
+<div class="box">
+
+<h3>Gruba Katıl</h3>
+
+<input type="text" id="joinRoomName" placeholder="Grup adı">
+<input type="password" id="joinRoomPass" placeholder="Grup şifre">
+
+<button onclick="joinRoom()">Katıl</button>
+
+</div>
+
+<!-- GRUPLARIM -->
+<div class="box">
+
+<h3>Gruplarım</h3>
+
+<div id="myRooms"></div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+loadMyRooms();
+</script>
+
+</body>
+</html>

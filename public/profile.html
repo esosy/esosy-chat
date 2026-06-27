@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil - Esosy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+<a href="index.html" class="logo">Esosy</a>
+
+<nav class="menu">
+<a href="index.html">Ana Sayfa</a>
+</nav>
+
+</header>
+
+<div class="box">
+
+<h2>Profilim</h2>
+
+<!-- PROFİL RESMİ -->
+<div class="profile-area">
+
+<img id="avatar"
+src="https://api.dicebear.com/7.x/bottts/svg?seed=shadow"
+class="avatar">
+
+<p id="pUser"></p>
+<p id="pEmail"></p>
+
+<button onclick="toggleAvatars()" class="change-btn">
+Profil Değiştir
+</button>
+
+</div>
+
+<!-- AVATAR GALERİ -->
+<div id="avatarBox" class="avatar-box">
+
+<h3>Avatar Seç</h3>
+
+<div class="avatars">
+
+<!-- ERKEK -->
+<img src="https://i.pravatar.cc/100?img=12" onclick="setAvatar(this.src)">
+<img src="https://i.pravatar.cc/100?img=13" onclick="setAvatar(this.src)">
+<img src="https://i.pravatar.cc/100?img=14" onclick="setAvatar(this.src)">
+<img src="https://i.pravatar.cc/100?img=15" onclick="setAvatar(this.src)">
+<img src="https://i.pravatar.cc/100?img=16" onclick="setAvatar(this.src)">
+
+<!-- KIZ -->
+<img src="https://i.pravatar.cc/100?img=47" onclick="setAvatar(this.src)">
+<img src="https://i.pravatar.cc/100?img=48" onclick="setAvatar(this.src)">
+<img src="https://i.pravatar.cc/100?img=49" onclick="setAvatar(this.src)">
+<img src="https://i.pravatar.cc/100?img=50" onclick="setAvatar(this.src)">
+<img src="https://i.pravatar.cc/100?img=51" onclick="setAvatar(this.src)">
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+
+function loadProfile(){
+document.getElementById("pUser").innerText =
+"Kullanıcı: " + localStorage.getItem("user");
+
+document.getElementById("pEmail").innerText =
+"E-posta: " + localStorage.getItem("email");
+
+let avatar = localStorage.getItem("avatar");
+
+if(avatar){
+document.getElementById("avatar").src = avatar;
+}
+}
+
+function toggleAvatars(){
+let box = document.getElementById("avatarBox");
+box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+function setAvatar(src){
+localStorage.setItem("avatar", src);
+document.getElementById("avatar").src = src;
+}
+
+loadProfile();
+
+</script>
+
+</body>
+</html>

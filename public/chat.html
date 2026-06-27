@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Esosy Chat</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2 id="roomTitle"></h2>
+
+<div id="messages"></div>
+
+<input id="msg" placeholder="Mesaj yaz...">
+<button onclick="sendMsg()">Gönder</button>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+const socket = io();
+
+let room = localStorage.getItem("currentRoom");
+let user = localStorage.getItem("currentUser");
+
+document.getElementById("roomTitle").innerText = "Oda: " + room;
+
+// odaya katıl
+socket.emit("joinRoom", room);
+
+// mesaj gelince
+socket.on("message", (data) => {
+let div = document.createElement("div");
+div.innerText = data.user + ": " + data.text;
+document.getElementById("messages").appendChild(div);
+});
+
+// mesaj gönder
+function sendMsg(){
+let text = document.getElementById("msg").value;
+
+socket.emit("message", {
+room: room,
+user: user,
+text: text
+});
+
+document.getElementById("msg").value = "";
+}
+</script>
+
+</body>
+</html>

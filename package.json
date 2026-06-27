@@ -1,0 +1,17 @@
+{
+  "name": "esosy-chat",
+  "version": "1.0.0",
+  "description": "Esosy real-time chat app",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
